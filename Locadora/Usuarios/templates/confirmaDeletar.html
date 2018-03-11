@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deletar</title>
+</head>
+<body>
+Deseja realmente deletar o usuário {{usuario.nome}}?
+<form method="POST">
+{% csrf_token %}
+<button type="submit" >Confirmar</button>
+    <br>
+
+</form>
+<a href="{% url 'listar' %}">Cancelar</a>
+</body>
+</html>

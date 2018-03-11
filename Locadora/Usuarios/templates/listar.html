@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Usuários</title>
+</head>
+<body>
+Lista de Usuarios
+    <ul>
+        Quantidade de usuários: {{ usuarios.count }}
+
+            {% if usuarios.count > 0 %}
+                {% for usuario in usuarios %}
+                     <li>
+                         <a href="{% url 'alterar' usuario.id  %}">       {{usuario.nome}} - {{usuario.apelido}}</a>
+                         <a href="{% url 'deletar' usuario.id %}">Deletar</a>
+                     </li>
+                {% endfor %}
+            {% else %}
+                <h4>Não existem usuários cadastrados!</h4>
+            {% endif %}
+
+
+        <a href="{% url 'incluir' %}">Incluir</a>
+    </ul>
+</body>
+</html>
